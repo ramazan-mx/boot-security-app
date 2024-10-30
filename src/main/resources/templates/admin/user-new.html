@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+
+<form method="POST" th:action="@{/admin/users}">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username"><br>
+
+    <label for="firstname">FirstName</label>
+    <input type="text" name="firstname" id="firstname"><br>
+
+    <label for="lastname">LastName</label>
+    <input type="text" name="lastname" id="lastname"><br>
+
+    <label for="email">Email </label>
+    <input type="email" name="email" id="email"><br>
+
+    <label for="roles">Choose roles:</label>
+    <select id="roles" name="roles" multiple size="2">
+        <option th:each="role : ${allRoles}" th:value="${role.id}" th:text="${role.role}"></option>
+    </select><br>
+    <input type="submit" value="create">
+</form><br>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

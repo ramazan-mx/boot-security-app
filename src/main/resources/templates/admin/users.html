@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+
+<th::block th:each="user : ${users}">
+    <a th:href="@{/admin/users(id=${user.id})}" style="font-size: 36px">
+        [[${user.getFirstName()} + ' ' + ${user.getLastName()}]]
+    </a>
+    <br>
+</th::block>
+
+<hr>
+<form method="get" th:action="@{/admin/users/new}">
+    <input type="submit" value="create">
+</form><br>
+<a th:href="@{/logout}">Logout</a>
+
+</body>
+</html>
