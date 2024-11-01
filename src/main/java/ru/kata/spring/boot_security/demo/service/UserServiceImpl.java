@@ -37,7 +37,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         }
     }
 
-    @Transactional
     @Override
     public List<Role> getRoles() {
         return roleRepo.findAll();
@@ -76,13 +75,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userRepo.deleteById(id);
     }
 
-    @Transactional
     @Override
     public List<User> getAll() {
         return userRepo.findAll();
     }
 
-    @Transactional
     @Override
     public User getUserById(int id) {
         return userRepo.findById(id).orElse(null);
